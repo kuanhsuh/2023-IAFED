@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <nav class="bg-white shadow "
+        x-data="{ mobileMenu: true }">
+        <div class="container mx-auto sm:px-6 lg:px-8 px-2">
+            <div class="relative flex h-16 justify-between">
+                <div
+                    class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button -->
+                    <button type="button"
+                        @click="mobileMenu = !mobileMenu "
+                        class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                        aria-controls="mobile-menu"
+                        aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <svg class="hidden h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div
+                    class="flex flex-1 items-center justify-between sm:items-stretch sm:justify-between">
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="block h-8 w-auto lg:hidden"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            alt="Your Company">
+                        <img class="hidden h-8 w-auto lg:block"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            alt="Your Company">
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+                        <a href="#"
+                            class="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900">首頁</a>
+                        <div class="relative flex"
+                            x-data="{ flyoutMenuOpen: false }">
+                            <button @click="flyoutMenuOpen = !flyoutMenuOpen"
+                                type="button"
+                                class="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900"
+                                aria-expanded="false">
+                                <span>關於</span>
+                                <svg class="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+
+                            <div class="absolute top-12 left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4"
+                                x-show="flyoutMenuOpen"
+                                @click.away="flyoutMenuOpen = false">
+                                <div
+                                    class="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                                    <div class="p-4">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    認識雇主協會
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Get a better understanding
+                                                    of your traffic
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    團隊名單
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> <!-- end 關於 flyoutmenu -->
+                        <div class="relative flex"
+                            x-data="{ flyoutMenuOpen: false }">
+                            <button @click="flyoutMenuOpen = !flyoutMenuOpen"
+                                type="button"
+                                class="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900"
+                                aria-expanded="false">
+                                <span>資源</span>
+                                <svg class="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+
+                            <div class="absolute top-12 left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4"
+                                x-show="flyoutMenuOpen"
+                                @click.away="flyoutMenuOpen = false">
+                                <div
+                                    class="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                                    <div class="p-4">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    照護資源
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Get a better understanding
+                                                    of your traffic
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    資訊分享
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    服務專區
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    下載專區
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> <!-- end 資源 flyoutmenu -->
+                        <div class="relative flex"
+                            x-data="{ flyoutMenuOpen: false }">
+                            <button @click="flyoutMenuOpen = !flyoutMenuOpen"
+                                type="button"
+                                class="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900"
+                                aria-expanded="false">
+                                <span>加入</span>
+                                <svg class="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+
+                            <div class="absolute top-12 left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4"
+                                x-show="flyoutMenuOpen"
+                                @click.away="flyoutMenuOpen = false">
+                                <div
+                                    class="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                                    <div class="p-4">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    照護投稿園地
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Get a better understanding
+                                                    of your traffic
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    參與協會
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    服務專區
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
+                                                    下載專區
+                                                    <span
+                                                        class="absolute inset-0"></span>
+                                                </a>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> <!-- end 資源 flyoutmenu -->
+                        <a href="#"
+                            class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-700 hover:border-gray-300 hover:text-gray-700">捐款支持</a>
+                        <a href="#"
+                            class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-700 hover:border-gray-300 hover:text-gray-700">聯絡我們</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden"
+            id="mobile-menu"
+            :class="{ 'hidden': mobileMenu }">
+            <div class="space-y-1 pt-2 pb-4">
+                <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
+                <a href="#"
+                    class="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700">首頁</a>
+                <div class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                    x-data="{ isOpen: false }">
+                    <dt>
+                        <!-- Expand/collapse question button -->
+                        <button type="button"
+                            class="flex w-full items-start justify-between text-left text-gray-900"
+                            @click="isOpen = !isOpen"
+                            aria-controls="faq-0"
+                            aria-expanded="false">
+                            <span
+                                class="text-base font-semibold leading-7">關於</span>
+                            <span class="ml-6 flex h-7 items-center">
+                                <svg class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 6v12m6-6H6" />
+                                </svg>
+                                <svg class="hidden h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M18 12H6" />
+                                </svg>
+                            </span>
+                        </button>
+                    </dt>
+                    <dd x-show="isOpen"
+                        class="mt-2 pr-12"
+                        id="faq-0"
+                        @click.away="isOpen = false">
+                        <a href="#"
+                            class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">認識雇主協會</a>
+                        <a href="#"
+                            class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">團隊名單</a>
+                    </dd>
+                </div>
+                <div class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                    x-data="{ isOpen: false }">
+                    <dt>
+                        <!-- Expand/collapse question button -->
+                        <button type="button"
+                            class="flex w-full items-start justify-between text-left text-gray-900"
+                            @click="isOpen = !isOpen"
+                            aria-controls="faq-0"
+                            aria-expanded="false">
+                            <span
+                                class="text-base font-semibold leading-7">資源</span>
+                            <span class="ml-6 flex h-7 items-center">
+                                <svg class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 6v12m6-6H6" />
+                                </svg>
+                                <svg class="hidden h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M18 12H6" />
+                                </svg>
+                            </span>
+                        </button>
+                    </dt>
+                    <dd x-show="isOpen"
+                        class="mt-2 pr-12"
+                        id="faq-0"
+                        @click.away="isOpen = false">
+                        <a href="#"
+                            class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">照護資源</a>
+                        <a href="#"
+                            class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">資訊分享</a>
+                        <a href="#"
+                            class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">服務專區</a>
+                        <a href="#"
+                            class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">下載專區</a>
+                    </dd>
+                </div>
+                <div class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                    x-data="{ isOpen: false }">
+                    <dt>
+                        <!-- Expand/collapse question button -->
+                        <button type="button"
+                            class="flex w-full items-start justify-between text-left text-gray-900"
+                            @click="isOpen = !isOpen"
+                            aria-controls="faq-0"
+                            aria-expanded="false">
+                            <span
+                                class="text-base font-semibold leading-7">加入</span>
+                            <span class="ml-6 flex h-7 items-center">
+                                <svg class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 6v12m6-6H6" />
+                                </svg>
+                                <svg class="hidden h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M18 12H6" />
+                                </svg>
+                            </span>
+                        </button>
+                    </dt>
+                    <dd x-show="isOpen"
+                        class="mt-2 pr-12"
+                        id="faq-0"
+                        @click.away="isOpen = false">
+                        <a href="#"
+                            class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">照護投稿園地</a>
+                        <a href="#"
+                            class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">參與協會</a>
+                    </dd>
+                </div>
+                <a href="#"
+                    class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">捐款支持</a>
+                <a href="#"
+                    class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar Section -->
+
+    <div class="mx-auto px-4 max-w-5xl text-base mt-10 leading-7 text-gray-700">
+        <p class="text-base font-semibold leading-7 text-indigo-600">BOARD</p>
+
+        <h1
+            class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            團隊名單</h1>
+        <h2 class="mt-8 text-2xl font-medium">現任理事及監事名冊</h2>
+        任期自2022年9月24日起至2025年9月23日止
+        <div class="pb-10 mt-2 ">
+            <div
+                class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-md">
+                <table class="w-full text-center border-collapse rounded-sm">
+                    <thead class="bg-indigo-100 ">
+                        <tr>
+                            <th class="w-2/12 py-2">職稱</th>
+                            <th class="w-3/12">姓名</th>
+                            <th class="w-6/12">現職/學經歷</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">理事長</td>
+                            <td class="p-2">張姮燕</td>
+                            <td class="p-2 text-left text-sm">
+                                義守大學國際傳媒與娛樂管理學系助理教授
+                                國立中山大學人力資源管理全英語碩士學位學程兼任助理教授
+                                銳傳媒副社長
+                                義守大學國際處國際學生事務組組長(2011-2013)
+                                經濟部中小企業處社企型公司進階推動計畫/創業諮詢服務計畫顧問
+                                美國普渡大學(Purdue Univ.)觀光暨餐旅管理博士、碩士
+                                國立中山大學人力資源管理博士候選人</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">常務理事</td>
+                            <td class="p-2">陳靜儀</td>
+                            <td class="p-2 text-left text-sm">財經專家
+                                企業顧問
+                                電子業、金融期貨業、大眾媒體業、金融保險業
+                                學生家長會常務委員超過12年
+                                新北市選委會監察小組委員
+                                美國奧勒岡大學 主修經濟、副修企業管理</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">常務理事</td>
+                            <td class="p-2">林育琳</td>
+                            <td class="p-2 text-left text-sm">
+                                社團法人脊髓損傷者聯合會常務監事
+                                社團法人新北市脊髓損傷者協會理事</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">理事</td>
+                            <td class="p-2">賴昱菘</td>
+                            <td class="p-2 text-left text-sm">
+                                社團法人身心障礙者監督聯盟理事
+                                社團法人台灣失能者家庭暨看護雇主國際協會
+                                第二屆理事長</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">理事</td>
+                            <td class="p-2">黃傳祐</td>
+                            <td class="p-2 text-left text-sm">
+                                社團法人雲林脊髓損傷者協會理事長
+                                社團法人中華民國脊髓損傷者聯合會理事</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">理事</td>
+                            <td class="p-2">陳弘偉</td>
+                            <td class="p-2 text-left text-sm">
+                                社團法人基隆市脊髓損傷者協會常務監事</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">理事</td>
+                            <td class="p-2">簡晏隆</td>
+                            <td class="p-2 text-left text-sm">
+                                社團法人新北市脊髓損傷者協會理事長</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">理事</td>
+                            <td class="p-2">趙庭毅</td>
+                            <td class="p-2 text-left text-sm">
+                                社團法人基隆市脊髓損傷者協會理事</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">理事</td>
+                            <td class="p-2">黃祺雯</td>
+                            <td class="p-2 text-left text-sm">
+                                財團法人桃園市私立脊髓損傷潛能發展中心
+                                110桃竹苗訪視員</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">常務監事</td>
+                            <td class="p-2">徐慰慈</td>
+                            <td class="p-2 text-left text-sm">
+                                社團法人台北市脊髓損傷者協會理事</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">監事</td>
+                            <td class="p-2">張進財</td>
+                            <td class="p-2 text-left text-sm">
+                                退伍軍人社團醫院志工訪視員</td>
+                        </tr>
+                        <tr class="border-b border-gray-3">
+                            <td class="p-2">監事</td>
+                            <td class="p-2">徐惠美</td>
+                            <td class="p-2 text-left text-sm">
+                                新北市私立永安居家長照機構員工</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h2 class="mt-8 text-2xl font-medium">執行長暨顧問團隊陣容</h2>
+        <div class="pb-10 mt-2">
+            <div
+                class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-md">
+                <table class="w-full text-center border-collapse rounded-sm">
+                    <thead class="bg-indigo-100 ">
+                        <tr>
+                            <th class="w-2/12 py-2">職稱</th>
+                            <th class="w-3/12">姓名</th>
+                            <th class="w-6/12">現職/學經歷</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">執行長</td>
+                            <td class="p-2">童文薫</td>
+                            <td class="p-2 text-left text-sm">約瑟爵濱法律事務所合夥律師
+                                網路政論節目《童溫層》主持人
+                                傳播科技公司董事長
+                                美國麥克喬治法學院LLM法學碩士
+                                國立臺灣大學法律學系學士</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">總顧問</td>
+                            <td class="p-2">張姮燕</td>
+                            <td class="p-2 text-left text-sm">
+                                義守大學國際傳媒與娛樂管理學系助理教授
+                                國立中山大學人力資源管理全英語碩士學位學程兼任助理教授
+                                銳傳媒副社長
+                                美國普渡大學(Purdue Univ.)觀光暨餐旅管理博士、碩士
+                                國立中山大學人力資源管理博士候選人</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">方浩鍵</td>
+                            <td class="p-2 text-left text-sm">千衡律師事務所主持律師
+                                台灣跨國勞動力權益策進會理事長
+                                泰國經濟貿易臺北代表處 移工人權律師
+                                輔仁大學法律系</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">劉振珷</td>
+                            <td class="p-2 text-left text-sm">紳策法律事務所合夥律師
+                                衛福部性騷擾專業調查人員
+                                中華民國仲裁協會調解員
+                                台灣大學法律系學士
+                                政治大學法律研究所刑法组碩士</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">易帥君</td>
+                            <td class="p-2 text-left text-sm">安恆國際法律事務所主持律師
+                                國立中興大學科技法律研究所</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">楊玉欣</td>
+                            <td class="p-2 text-left text-sm">基隆市政府社會處處長
+                                病人自主研究中心執行長
+                                第8屆中國國民黨籍不分區立法委員
+                                立法院榮譽顧問
+                                社團法人台灣弱勢病患權益促進會常務理事</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">于白儂</td>
+                            <td class="p-2 text-left text-sm">立法院國會辦公室主任
+                                職訓講師</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">林秋菊</td>
+                            <td class="p-2 text-left text-sm"></td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">林夏瑤</td>
+                            <td class="p-2 text-left text-sm">香港香港國際政商勞資事務和諧關愛會
+                                創會會長暨主席</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">許睿芬</td>
+                            <td class="p-2 text-left text-sm">義大大昌醫院 耳鼻喉科
+                                主任級主治醫師
+                                高雄醫學大學醫學系醫學士
+                                高雄醫學大學職業醫學安全衛生研究所碩士
+                                高雄長庚紀念醫院　耳鼻喉科住院醫師、總醫師
+                                高雄長庚紀念醫院耳鼻喉科及兒童耳鼻喉科主治醫師
+                                高雄長庚醫院職業病科醫師
+                                美國House 耳科中心顳骨及中耳炎手術進修結業
+                                教育部部定助理教授</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">鄭春鴻</td>
+                            <td class="p-2 text-left text-sm">銳傳媒總編輯</td>
+                        </tr>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2">顧問</td>
+                            <td class="p-2">石宗波</td>
+                            <td class="p-2 text-left text-sm">正大顧問有限公司總經理</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 py-8">
+        <div
+            class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+            <div class="flex justify-center space-x-6 md:order-2">
+                <a href="#"
+                    class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">Facebook</span>
+                    <svg class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+
+
+
+                <a href="#"
+                    class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">YouTube</span>
+                    <svg class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            <div class="mt-8 md:order-1 md:mt-0">
+                <p class="text-center text-xs leading-5 text-gray-500">&copy;
+                    2023 社團法人台灣失能者家庭暨看護雇主國際協會, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

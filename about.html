@@ -3,53 +3,79 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </head>
 
 <body>
     <!-- Navbar Section -->
-    <nav class="bg-white shadow " x-data="{ mobileMenu: true }">
+    <nav class="bg-white shadow "
+        x-data="{ mobileMenu: true }">
         <div class="container mx-auto sm:px-6 lg:px-8 px-2">
             <div class="relative flex h-16 justify-between">
-                <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+                <div
+                    class="absolute inset-y-0 right-0 flex items-center sm:hidden">
                     <!-- Mobile menu button -->
-                    <button type="button" @click="mobileMenu = !mobileMenu "
+                    <button type="button"
+                        @click="mobileMenu = !mobileMenu "
                         class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                        aria-controls="mobile-menu" aria-expanded="false">
+                        aria-controls="mobile-menu"
+                        aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
-                        <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
+                        <svg class="block h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
                                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
-                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        <svg class="hidden h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
-                <div class="flex flex-1 items-center justify-between sm:items-stretch sm:justify-between">
+                <div
+                    class="flex flex-1 items-center justify-between sm:items-stretch sm:justify-between">
                     <div class="flex flex-shrink-0 items-center">
                         <img class="block h-8 w-auto lg:hidden"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            alt="Your Company">
                         <img class="hidden h-8 w-auto lg:block"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            alt="Your Company">
                     </div>
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                         <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
                         <a href="#"
                             class="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900">首頁</a>
-                        <div class="relative flex" x-data="{ flyoutMenuOpen: false }">
-                            <button @click="flyoutMenuOpen = !flyoutMenuOpen" type="button"
+                        <div class="relative flex"
+                            x-data="{ flyoutMenuOpen: false }">
+                            <button @click="flyoutMenuOpen = !flyoutMenuOpen"
+                                type="button"
                                 class="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900"
                                 aria-expanded="false">
                                 <span>關於</span>
-                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <svg class="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true">
                                     <path fill-rule="evenodd"
                                         d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
                                         clip-rule="evenodd" />
@@ -57,29 +83,40 @@
                             </button>
 
                             <div class="absolute top-12 left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4"
-                                x-show="flyoutMenuOpen" @click.away="flyoutMenuOpen = false">
+                                x-show="flyoutMenuOpen"
+                                @click.away="flyoutMenuOpen = false">
                                 <div
                                     class="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
                                     <div class="p-4">
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     認識雇主協會
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Get a better understanding of your traffic
+                                                <p class="mt-1 text-gray-600">
+                                                    Get a better understanding
+                                                    of your traffic
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
 
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     團隊名單
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
                                             </div>
                                         </div>
 
@@ -88,12 +125,17 @@
                                 </div>
                             </div>
                         </div> <!-- end 關於 flyoutmenu -->
-                        <div class="relative flex" x-data="{ flyoutMenuOpen: false }">
-                            <button @click="flyoutMenuOpen = !flyoutMenuOpen" type="button"
+                        <div class="relative flex"
+                            x-data="{ flyoutMenuOpen: false }">
+                            <button @click="flyoutMenuOpen = !flyoutMenuOpen"
+                                type="button"
                                 class="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900"
                                 aria-expanded="false">
                                 <span>資源</span>
-                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <svg class="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true">
                                     <path fill-rule="evenodd"
                                         d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
                                         clip-rule="evenodd" />
@@ -101,46 +143,67 @@
                             </button>
 
                             <div class="absolute top-12 left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4"
-                                x-show="flyoutMenuOpen" @click.away="flyoutMenuOpen = false">
+                                x-show="flyoutMenuOpen"
+                                @click.away="flyoutMenuOpen = false">
                                 <div
                                     class="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
                                     <div class="p-4">
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     照護資源
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Get a better understanding of your traffic
+                                                <p class="mt-1 text-gray-600">
+                                                    Get a better understanding
+                                                    of your traffic
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     資訊分享
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
                                             </div>
                                         </div>
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     服務專區
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
                                             </div>
                                         </div>
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     下載專區
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
                                             </div>
                                         </div>
                                     </div>
@@ -148,12 +211,17 @@
                                 </div>
                             </div>
                         </div> <!-- end 資源 flyoutmenu -->
-                        <div class="relative flex" x-data="{ flyoutMenuOpen: false }">
-                            <button @click="flyoutMenuOpen = !flyoutMenuOpen" type="button"
+                        <div class="relative flex"
+                            x-data="{ flyoutMenuOpen: false }">
+                            <button @click="flyoutMenuOpen = !flyoutMenuOpen"
+                                type="button"
                                 class="inline-flex items-center  px-1 pt-1 text-sm font-medium text-gray-900"
                                 aria-expanded="false">
                                 <span>加入</span>
-                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <svg class="h-5 w-5"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true">
                                     <path fill-rule="evenodd"
                                         d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
                                         clip-rule="evenodd" />
@@ -161,46 +229,67 @@
                             </button>
 
                             <div class="absolute top-12 left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4"
-                                x-show="flyoutMenuOpen" @click.away="flyoutMenuOpen = false">
+                                x-show="flyoutMenuOpen"
+                                @click.away="flyoutMenuOpen = false">
                                 <div
                                     class="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
                                     <div class="p-4">
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     照護投稿園地
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Get a better understanding of your traffic
+                                                <p class="mt-1 text-gray-600">
+                                                    Get a better understanding
+                                                    of your traffic
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     參與協會
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
                                             </div>
                                         </div>
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     服務專區
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
                                             </div>
                                         </div>
-                                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                                        <div
+                                            class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                                             <div>
-                                                <a href="#" class="font-semibold text-gray-900">
+                                                <a href="#"
+                                                    class="font-semibold text-gray-900">
                                                     下載專區
-                                                    <span class="absolute inset-0"></span>
+                                                    <span
+                                                        class="absolute inset-0"></span>
                                                 </a>
-                                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                                                <p class="mt-1 text-gray-600">
+                                                    Speak directly to your
+                                                    customers</p>
                                             </div>
                                         </div>
                                     </div>
@@ -219,7 +308,9 @@
         </div>
 
         <!-- Mobile menu, show/hide based on menu state. -->
-        <div class="sm:hidden" id="mobile-menu" :class="{ 'hidden': mobileMenu }">
+        <div class="sm:hidden"
+            id="mobile-menu"
+            :class="{ 'hidden': mobileMenu }">
             <div class="space-y-1 pt-2 pb-4">
                 <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
                 <a href="#"
@@ -228,22 +319,41 @@
                     x-data="{ isOpen: false }">
                     <dt>
                         <!-- Expand/collapse question button -->
-                        <button type="button" class="flex w-full items-start justify-between text-left text-gray-900"
-                            @click="isOpen = !isOpen" aria-controls="faq-0" aria-expanded="false">
-                            <span class="text-base font-semibold leading-7">關於</span>
+                        <button type="button"
+                            class="flex w-full items-start justify-between text-left text-gray-900"
+                            @click="isOpen = !isOpen"
+                            aria-controls="faq-0"
+                            aria-expanded="false">
+                            <span
+                                class="text-base font-semibold leading-7">關於</span>
                             <span class="ml-6 flex h-7 items-center">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                <svg class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 6v12m6-6H6" />
                                 </svg>
-                                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
+                                <svg class="hidden h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M18 12H6" />
                                 </svg>
                             </span>
                         </button>
                     </dt>
-                    <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0" @click.away="isOpen = false">
+                    <dd x-show="isOpen"
+                        class="mt-2 pr-12"
+                        id="faq-0"
+                        @click.away="isOpen = false">
                         <a href="#"
                             class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">認識雇主協會</a>
                         <a href="#"
@@ -254,22 +364,41 @@
                     x-data="{ isOpen: false }">
                     <dt>
                         <!-- Expand/collapse question button -->
-                        <button type="button" class="flex w-full items-start justify-between text-left text-gray-900"
-                            @click="isOpen = !isOpen" aria-controls="faq-0" aria-expanded="false">
-                            <span class="text-base font-semibold leading-7">資源</span>
+                        <button type="button"
+                            class="flex w-full items-start justify-between text-left text-gray-900"
+                            @click="isOpen = !isOpen"
+                            aria-controls="faq-0"
+                            aria-expanded="false">
+                            <span
+                                class="text-base font-semibold leading-7">資源</span>
                             <span class="ml-6 flex h-7 items-center">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                <svg class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 6v12m6-6H6" />
                                 </svg>
-                                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
+                                <svg class="hidden h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M18 12H6" />
                                 </svg>
                             </span>
                         </button>
                     </dt>
-                    <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0" @click.away="isOpen = false">
+                    <dd x-show="isOpen"
+                        class="mt-2 pr-12"
+                        id="faq-0"
+                        @click.away="isOpen = false">
                         <a href="#"
                             class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">照護資源</a>
                         <a href="#"
@@ -284,22 +413,41 @@
                     x-data="{ isOpen: false }">
                     <dt>
                         <!-- Expand/collapse question button -->
-                        <button type="button" class="flex w-full items-start justify-between text-left text-gray-900"
-                            @click="isOpen = !isOpen" aria-controls="faq-0" aria-expanded="false">
-                            <span class="text-base font-semibold leading-7">加入</span>
+                        <button type="button"
+                            class="flex w-full items-start justify-between text-left text-gray-900"
+                            @click="isOpen = !isOpen"
+                            aria-controls="faq-0"
+                            aria-expanded="false">
+                            <span
+                                class="text-base font-semibold leading-7">加入</span>
                             <span class="ml-6 flex h-7 items-center">
-                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                <svg class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M12 6v12m6-6H6" />
                                 </svg>
-                                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
+                                <svg class="hidden h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M18 12H6" />
                                 </svg>
                             </span>
                         </button>
                     </dt>
-                    <dd x-show="isOpen" class="mt-2 pr-12" id="faq-0" @click.away="isOpen = false">
+                    <dd x-show="isOpen"
+                        class="mt-2 pr-12"
+                        id="faq-0"
+                        @click.away="isOpen = false">
                         <a href="#"
                             class="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700">照護投稿園地</a>
                         <a href="#"
@@ -315,175 +463,105 @@
     </nav>
     <!-- End Navbar Section -->
 
-    <div class="mx-auto max-w-3xl text-base mt-10 leading-7 text-gray-700">
-        <p class="text-base font-semibold leading-7 text-indigo-600">Introducing</p>
-        <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">協會介紹</h1>
-        <p class="mt-6 text-xl leading-8">台灣失能者家庭暨看護雇主國際協會（International Association of Family and Employers with
-            Disabilities，IAFED)創辦於2021年8月，為全台唯一專為持有「巴氏量表」聘僱「外籍看護工」之家庭看護工雇主所組成的立案協會，簡稱「雇主協會」。本會歷經多次改革，長久以來，在追求穩定的照護人力下，以雇主、受照護者、失能、失智、身障者與家庭的立場，為眾多聘僱家庭看護雇主發聲、爭取權益。
+    <div class="mx-auto max-w-3xl px-4 text-base mt-10 leading-7 text-gray-700">
+        <p class="text-base font-semibold leading-7 text-indigo-600">Introducing
+        </p>
+
+        <h1
+            class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            協會介紹</h1>
+        <p class="mt-6 text-xl leading-8">社團法人台灣失能者家庭暨看護雇主國際協會（International
+            Association of Family and Employers with Disabilities，IAFED)
+            創立於2021年8月，是全台唯一專為持有「巴氏量表」或「失智量表」而聘僱「外籍看護工」之家庭看護工雇主所組成的立案協會，為一專注於為失能家庭爭取公平權益的非營利組織。協會於2022年取得社團法人的資格，成為正式的法人團體。協會以外籍看護雇主、受照護者、失能、失智、身障者與家庭的立場，為眾多聘僱看護的失能家庭發聲、爭取權益，並以追求「穩定的照護人力」為目標。
         </p>
         <p class="mt-6 text-xl leading-8">
-            近年來，外籍看護工與雇主，在現有的制度下，已經逐漸失衡，許多家庭類的雇主，變成移工轉換工作的跳板。台灣在2023年高達8萬逃逸移工，其中以千計是從重症家庭逃逸，造成雇主三個月以上的空窗。</p>
-        <p class="mt-6 text-xl leading-8">
-            本會致力於改善台灣移工政策，為失能家庭爭取公平的權益，這個使命也同時關乎到受照護者、失能、失智、身障者以及家庭的生活，並且也反映了現今制度的失衡。我們協會的訴求，一直是為了家庭看護雇主發聲，並且以受照護者照護品質為核心，不斷努力爭取更多的權益，期望失能家庭獲得合理且具有尊嚴照護的待遇，以確保所有失能家庭的權益不被忽略。並試圖呼籲將年久失修的「就業服務法」做檢視與增修，希望把外籍看護落實在彌補我國長照人力缺乏的一環，提供穩定的照護人力。盼能集合眾人力量，促政府修法保障看護工雇主、維繋失能家庭照護人力、達到零空窗等。
+            近年來，外籍看護工與雇主之間的制度已逐漸失衡，許多家庭類的雇主變成移工轉換工作的跳板。台灣在2023年高達8萬多名逃逸移工，其中千計是從重症家庭逃逸，造成雇主三個月以上的空窗。
         </p>
-        <h3 class="text-base text-xl font-semibold my-8 text-indigo-600">LOGO設計理念：</h3>
+        <p class="mt-6 text-xl leading-8">
+            長久以來，本會致力於改善台灣外籍勞動力政策，為失能家庭爭取公平的權益。這個使命不僅關乎受照護者、失能、失智、身障者以及家庭的生活，並且也反映現今制度的失衡。雇主協會的訴求，一直是為了家庭看護雇主發聲，並且以受照護者照護品質為核心，不斷努力爭取更多的權益，期望失能家庭獲得合理且具有尊嚴照護的待遇，以確保所有失能家庭的權益不被忽略。有鑒於引進外籍勞動力以來已逾三十餘年，但各種工種與雇主間，都有著共同的問題，其中年久失修的「就業服務法」為主要問題所在。
+        </p>
+        <p class="mt-6 text-xl leading-8">
+            因此，本會希冀號召更多有共同信念的專家學者、個人與團體，讓「就業服務法」做全面的檢視與增修，制定出符合目前台灣勞動力市場需求的制度。希望把外籍看護落實在彌補我國長照人力缺乏的一環，提供穩定的照護人力，不再讓「重症」成為跳板。盼能集合眾人力量，促政府修法保障看護工雇主、維繋失能家庭照護人力，並達到「照護零空窗」。
+        </p>
+        <p class="mt-6 text-xl leading-8">
+            我們的目標：
+            1. 將工廠工及家庭看讓工分開管理，並修法限制看護工轉廠工。
+            2. 將家庭看誰工納入衛褔部管理，落實將外籍看護作為補足長照人力不足的方法。
+            3. 廢止外籍勞工逃逸懲戒「家庭看護工」雇主三個月空窗期，無法遞補的規定。
+            4. 積極的取締逃逸外勞，尋獲或其自首後，應面臨罰款、刑責。
+            5. 嚴重黑工問題證明「一進一出J 失靈，應全開放外籍勞工，避兔重症成為外勞來台跳板。
+            6. 建立雇主回饋外籍勞工表現系統。
+            7. 雇主得停聘不合格之外籍勞工並將其遣送回國。
+            8. 本勞與外勞薪資脫鉤。
+            9. 積極關發新的勞動力引進國。</p>
+        <p class="mt-6 text-xl leading-8">
+            我們的任務：
+            1. 增進大眾對失能者家庭與看護雇主的了解與關懷。
+            2. 督促政府提升失能者家庭與看護雇主之生活品質。
+            3. 督促政府訂定保障失能者家庭與看護雇主權益之法令。
+            4. 爭取失能者家庭與看護雇主權益相關之預算。
+            5. 督促政府規劃相關服務措施，推動失能者家庭與看護雇主之福利服務。
+            6. 進行福利服務方案之研究發展，為失能者家庭與看護雇主提供更好的服務。
+            7. 促進相關團體間之聯繫與合作，發揮協會在社會上的應有角色。</p>
+        <p class="mt-6 text-xl leading-8">
+            失能者家庭權利宣言：
+            1. 我有權聘雇外籍看護協助照護，而且不被「污名化」（stigma)。
+            2. 我有權選擇照顧家屬成為不逃跑陪伴，而無需擔憂被貼上各種各式標籤。
+            3. 我有權去捍衛重症家人的權益，作為「愛及隸屬」（Love and belonging needs）的自我實踐。
+            4. 我有權拒絕「新孝道」的道德綁架。
+            5.我擁有拒絕將重症家屬送機構的選擇權。</p>
+
+        <h3 class="text-base text-xl font-semibold my-8 text-indigo-600">
+            LOGO設計理念：</h3>
+        <img src="./logo.png"
+            alt=""
+            srcset=""
+            class="inline-block w-1/2">
         <p class=" text-xl leading-8 mb-10">
-            這個LOGO設計的理念是強調照護的專業和關懷，並且表現出以受照護者為中心的理念。左邊的外籍看護具有十字型符號，代表著專業照護的精神和技能；右邊的雇主代表著對照護者負有責任和義務；中間坐輪椅的輪椅符號是我們重點關注的對象，左右包圍的形狀象徵著保護，保護著被照顧者，並帶有著照護者對受照護者的責任和承諾。橄欖枝代表和平、希望和和諧，強調著和諧與尊重在照護過程中的重要性。整體設計傳達出專業照護和關懷，以及以受照護者為中心的價值觀。
+            LOGO設計強調照護的專業和關懷，並且表現出以受照護者為中心的理念。左邊的外籍看護具有十字型符號，代表著專業照護的精神和技能；右邊的雇主代表著對照護者負有責任和義務；中間坐輪椅的輪椅符號是我們重點關注的對象，左右包圍的形狀象徵著保護，保護著被照顧者，並帶有著照護者對受照護者的責任和承諾。橄欖枝代表和平、希望和和諧，強調著和諧與尊重在照護過程中的重要性。整體設計傳達出專業照護和關懷，以及以受照護者為中心的價值觀。
         </p>
 
     </div>
 
 
-    <!-- Footer -->
-    <footer class="bg-gray-900" aria-labelledby="footer-heading">
-        <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                <div class="space-y-8">
-                    <img class="h-7" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                        alt="Company name">
-                    <p class="text-sm leading-6 text-gray-300">Making the world a better place through constructing
-                        elegant hierarchies.</p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="text-gray-500 hover:text-gray-400">
-                            <span class="sr-only">Facebook</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
+    <footer class="bg-gray-900 py-8">
+        <div
+            class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+            <div class="flex justify-center space-x-6 md:order-2">
+                <a href="#"
+                    class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">Facebook</span>
+                    <svg class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
 
-                        <a href="#" class="text-gray-500 hover:text-gray-400">
-                            <span class="sr-only">Instagram</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
 
-                        <a href="#" class="text-gray-500 hover:text-gray-400">
-                            <span class="sr-only">Twitter</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                            </svg>
-                        </a>
 
-                        <a href="#" class="text-gray-500 hover:text-gray-400">
-                            <span class="sr-only">GitHub</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-
-                        <a href="#" class="text-gray-500 hover:text-gray-400">
-                            <span class="sr-only">YouTube</span>
-                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-                    <div class="md:grid md:grid-cols-2 md:gap-8">
-                        <div>
-                            <h3 class="text-sm font-semibold leading-6 text-white">Solutions</h3>
-                            <ul role="list" class="mt-6 space-y-4">
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Marketing</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Analytics</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Commerce</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Insights</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mt-10 md:mt-0">
-                            <h3 class="text-sm font-semibold leading-6 text-white">Support</h3>
-                            <ul role="list" class="mt-6 space-y-4">
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Pricing</a>
-                                </li>
-
-                                <li>
-                                    <a href="#"
-                                        class="text-sm leading-6 text-gray-300 hover:text-white">Documentation</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Guides</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">API Status</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="md:grid md:grid-cols-2 md:gap-8">
-                        <div>
-                            <h3 class="text-sm font-semibold leading-6 text-white">Company</h3>
-                            <ul role="list" class="mt-6 space-y-4">
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">About</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Blog</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Jobs</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Press</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Partners</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mt-10 md:mt-0">
-                            <h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
-                            <ul role="list" class="mt-6 space-y-4">
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Claim</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Privacy</a>
-                                </li>
-
-                                <li>
-                                    <a href="#" class="text-sm leading-6 text-gray-300 hover:text-white">Terms</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <a href="#"
+                    class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">YouTube</span>
+                    <svg class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
             </div>
-            <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-                <p class="text-xs leading-5 text-gray-400">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+            <div class="mt-8 md:order-1 md:mt-0">
+                <p class="text-center text-xs leading-5 text-gray-500">&copy;
+                    2023 社團法人台灣失能者家庭暨看護雇主國際協會, Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    <!-- End Footer -->
 
 </body>
 
