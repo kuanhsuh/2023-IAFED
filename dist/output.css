@@ -754,8 +754,8 @@ video {
   width: 1.5rem;
 }
 
-.w-auto {
-  width: auto;
+.w-80 {
+  width: 20rem;
 }
 
 .w-5 {
